@@ -1,7 +1,7 @@
-def gaji(perjam, liburan_semester):
+def gaji(perjam, liburan_semester, jam_kerja_perhari, hari_masuk):
     # gaji kotor
-    perhari = 24 * perjam
-    perminggu = 7 * perhari
+    perhari = jam_kerja_perhari * perjam
+    perminggu = hari_masuk * perhari
     gaji_kotor = perminggu * liburan_semester
     # pajak
     pajak = 14/100
@@ -29,10 +29,12 @@ def sedekah_yatim_dhaufa(total_sisa):
 
 def main():
     perjam = float(input("gaji per jam yang anda inginkan: ")) # membuat input untuk user
+    jam_kerja_perhari = float(input("masukan jam kerja perhari: ")) # membuat input untuk user
+    hari_masuk = float(input("masukan berapa hari masuk kerja dalam seminggu: ")) # membuat input untuk user
     liburan_semester = 5 # liburan semester = 5 minggu
-    gaji(perjam, liburan_semester) #memasukan input user ke fungsi gaji
+    gaji(perjam, liburan_semester, jam_kerja_perhari, hari_masuk) #memasukan input user ke fungsi gaji
     
-    gaji_kotor, gaji_bersih = gaji(perjam, liburan_semester)
+    gaji_kotor, gaji_bersih, = gaji(perjam, liburan_semester, jam_kerja_perhari, hari_masuk)
     print("Pendapatan Budi selama libur musim panas sebelum melakukan pembayaran pajak: Rp.", gaji_kotor) #soal 1
     print("Pendapatan Budi selama libur musim panas setelah melakukan pembayaran pajak: Rp.", gaji_bersih, "\n") #soal 2
 
